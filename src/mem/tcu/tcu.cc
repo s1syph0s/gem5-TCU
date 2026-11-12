@@ -35,11 +35,13 @@
 
 #include "arch/generic/mmu.hh"
 #include "base/output.hh"
+#include "base/trace.hh"
 #include "cpu/base.hh"
 #include "debug/Tcu.hh"
 #include "debug/TcuPackets.hh"
 #include "debug/TcuLLCMemAcc.hh"
 #include "debug/TcuCoreMemAcc.hh"
+#include "debug/TcuDebug.hh"
 #include "mem/tcu/error.hh"
 #include "mem/tcu/reg_file.hh"
 #include "mem/tcu/tcu.hh"
@@ -89,6 +91,9 @@ Tcu::Tcu(const TcuParams &p)
     cmdUnfreezeLatency(p.cmd_unfreeze_latency),
     cmdMkdynLatency(p.cmd_mkdyn_latency)
 {
+    if (this->tlBuf != 0) {
+        DPRINTF(TcuDebug, "TLB: %p", (void *)tlBuf);
+    }
     assert(p.buf_size >= maxNocPacketSize);
 }
 

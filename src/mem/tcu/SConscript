@@ -74,6 +74,7 @@ DebugFlag('TcuResponsePort')
 DebugFlag('TcuTlbRead')
 DebugFlag('TcuTlbWrite')
 DebugFlag('TcuXfers')
+DebugFlag('TcuDebug')
 
 CompoundFlag('TcuReg', [ 'TcuRegRead', 'TcuRegWrite' ])
 CompoundFlag('TcuTlb', [ 'TcuTlbRead', 'TcuTlbWrite' ])
